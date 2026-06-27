@@ -56,7 +56,7 @@ jobs:
             sudo docker run -d --name chaicode-node --restart unless-stopped -p 8000:8000 ankithex/chaicode-node
 
             #Clean Up old/unused images
-            sudo docker images prune -f   
+            sudo docker image prune -f   
 
 
 
