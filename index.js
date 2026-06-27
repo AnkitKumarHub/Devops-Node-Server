@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.get('/', (req,res)=>{
-    return res.json({message: "Server is Healthy! V2",
+    return res.json({message: "Server is Healthy! V3",
         status: "Github-Actions Docker 🐋",
     })
 });
