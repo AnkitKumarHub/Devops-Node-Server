@@ -4,7 +4,7 @@ name: Deploy Nodejs code on ExCloud
 on:
   push:
     branches:
-      -main
+      - main
 
 # Steps
 jobs:
@@ -12,9 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     -name: Checkout code
-      uses: actions/checkout@v4
-
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Deploy on Excloud Server
         uses: appleboy/ssh-action@v1.0.3
