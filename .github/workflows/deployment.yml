@@ -53,7 +53,7 @@ jobs:
             sudo docker pull ankithex/chaicode-node
 
             #Run docker run -d -p 8000:8000 ankithex/chaicode-node
-            sudo docker run -d --name chaicode-node --restart unless-stopped -p 8000:8000 ankithex/chaicode-node
+            sudo docker run -d --name chaicode-node --restart unless-stopped -p 80:8000 ankithex/chaicode-node
 
             #Clean Up old/unused images
             sudo docker image prune -f   
