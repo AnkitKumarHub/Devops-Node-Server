@@ -1,0 +1,33 @@
+name: Deploy Nodejs code on ExCloud 
+
+# Trigger Event
+on:
+  push:
+    branches:
+      -main
+
+# Steps
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+
+      - name: Deploy on Excloud Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          script: |
+          cd /home/ubuntu/Devops-Node-Server-
+          git pull
+          npm install 
+          pm2 restart 0
+
+
+
+        

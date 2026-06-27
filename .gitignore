@@ -143,3 +143,5 @@ vite.config.ts.timestamp-*
 .vite/
 
 notes.md
+private-key
+private-key.pub
