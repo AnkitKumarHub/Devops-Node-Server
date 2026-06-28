@@ -1,0 +1,21 @@
+services:
+  nodejs-server:
+    image: ankithex/chaicode-node
+    deploy:
+      replicas: 5
+    networks:
+      - chaicode-internal
+      #here we will not expose the port because caddy will take care of the reverse proxy and are on the same N/W
+
+  caddy:
+    image: caddy:latest
+    ports:
+      - "80:80" #caddy will be exposed on PORT :80 so traffic from the outer will come on the PORT 80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - chaicode-internal
+
+networks:
+  chaicode-internal:
+    driver: bridge

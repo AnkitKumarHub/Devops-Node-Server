@@ -47,16 +47,27 @@ jobs:
             # pm2 restart 0
 
             #kill the existing docker container 
-            sudo docker rm -f chaicode-node || true
+            #sudo docker rm -f chaicode-node || true
 
             #again pull the fresh image from hub
-            sudo docker pull ankithex/chaicode-node
+            #sudo docker pull ankithex/chaicode-node
 
             #Run docker run -d -p 8000:8000 ankithex/chaicode-node
-            sudo docker run -d --name chaicode-node --restart unless-stopped -p 80:8000 ankithex/chaicode-node
+            #sudo docker run -d --name chaicode-node --restart unless-stopped -p 80:8000 ankithex/chaicode-node
 
             #Clean Up old/unused images
-            sudo docker image prune -f   
+            #sudo docker image prune -f   
+
+            # cd /home/ubuntu/Devops-Node-Server-
+            # git pull 
+            # make sure to pull the fresh copy of ankithex/chaicode-node image from the docker hub
+            # docker compose up -d
+
+            cd /home/ubuntu/Devops-Node-Server-
+            git pull
+            sudo docker compose pull
+            sudo docker compose up -d
+            sudo docker image prune -f
 
 
 
