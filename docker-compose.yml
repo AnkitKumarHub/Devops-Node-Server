@@ -11,11 +11,18 @@ services:
     image: caddy:latest
     ports:
       - "80:80" #caddy will be exposed on PORT :80 so traffic from the outer will come on the PORT 80
+      - "443:443" #caddy will be exposed on PORT :443 so traffic from the outer will come on the PORT 443
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
     networks:
       - chaicode-internal
 
 networks:
   chaicode-internal:
     driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

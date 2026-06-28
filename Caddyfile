@@ -1,4 +1,4 @@
-:80 {
+ex.ankithub.me {
     handle {
         reverse_proxy nodejs-server:8000  {
             header_up Host {host}
